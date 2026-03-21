@@ -10,20 +10,20 @@ const navItems = [
 
 export default function Header() {
   return (
-    <header className="sticky top-0 z-50 bg-white/90 backdrop-blur-sm border-b border-neutral-100">
+    <header className="sticky top-0 z-50 bg-[#0a0a0f]/80 backdrop-blur-md border-b border-cyan-900/30">
       <nav className="max-w-3xl mx-auto px-5 py-2.5 flex items-center justify-between">
         <a
           href="#"
-          className="font-semibold text-neutral-900 hover:text-blue-600 transition-colors text-sm"
+          className="font-mono font-bold text-cyan-400 hover:text-cyan-300 transition-colors text-sm tracking-wider glow-text"
         >
-          Zhitong (Payton) Guo
+          ZG://
         </a>
-        <ul className="hidden sm:flex gap-5 text-sm text-neutral-500">
+        <ul className="hidden sm:flex gap-5 text-sm font-mono text-neutral-500">
           {navItems.map((item) => (
             <li key={item.href}>
               <a
                 href={item.href}
-                className="hover:text-neutral-800 transition-colors"
+                className="hover:text-cyan-400 transition-colors"
               >
                 {item.label}
               </a>

@@ -1,10 +1,15 @@
 import type { Metadata } from "next";
-import { Source_Sans_3 } from "next/font/google";
+import { JetBrains_Mono, Inter } from "next/font/google";
 import "./globals.css";
 
-const sourceSans = Source_Sans_3({
+const inter = Inter({
   subsets: ["latin"],
-  variable: "--font-source-sans",
+  variable: "--font-inter",
+});
+
+const jetbrains = JetBrains_Mono({
+  subsets: ["latin"],
+  variable: "--font-jetbrains",
 });
 
 export const metadata: Metadata = {
@@ -19,10 +24,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={sourceSans.variable}>
-      <body className="font-[family-name:var(--font-source-sans)]">
-        {children}
-      </body>
+    <html lang="en" className={`${inter.variable} ${jetbrains.variable}`}>
+      <body className="font-[family-name:var(--font-inter)]">{children}</body>
     </html>
   );
 }

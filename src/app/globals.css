@@ -9,17 +9,20 @@
   }
 
   body {
-    @apply bg-white text-neutral-800 antialiased;
+    @apply bg-[#0a0a0f] text-neutral-300 antialiased;
+    background-image:
+      radial-gradient(ellipse at 20% 50%, rgba(0, 255, 200, 0.03) 0%, transparent 50%),
+      radial-gradient(ellipse at 80% 20%, rgba(200, 0, 255, 0.03) 0%, transparent 50%);
   }
 
   ::selection {
-    @apply bg-indigo-100 text-indigo-900;
+    @apply bg-cyan-500/30 text-cyan-200;
   }
 }
 
 @layer components {
   .section-heading {
-    @apply text-xl font-semibold text-neutral-900 border-b border-neutral-200 pb-2 mb-5 mt-10;
+    @apply text-lg font-semibold text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-purple-400 border-b border-cyan-900/50 pb-2 mb-5 mt-10 uppercase tracking-wider;
   }
 
   .content-wrapper {
@@ -35,12 +38,26 @@
   }
 
   .entry-date {
-    @apply text-sm text-neutral-500 italic shrink-0;
+    @apply text-sm text-cyan-600 font-mono shrink-0;
   }
 
-  .link-blue {
-    @apply text-[#2563eb] hover:underline decoration-neutral-400 underline-offset-2;
+  .link-neon {
+    @apply text-cyan-400 hover:text-cyan-300 transition-colors hover:drop-shadow-[0_0_6px_rgba(0,255,200,0.5)];
   }
+}
+
+/* Glow text utility */
+.glow-text {
+  text-shadow: 0 0 10px rgba(0, 255, 200, 0.3), 0 0 40px rgba(0, 255, 200, 0.1);
+}
+
+.glow-text-purple {
+  text-shadow: 0 0 10px rgba(200, 0, 255, 0.3), 0 0 40px rgba(200, 0, 255, 0.1);
+}
+
+/* Neon border glow */
+.neon-border {
+  box-shadow: 0 0 8px rgba(0, 255, 200, 0.15), inset 0 0 8px rgba(0, 255, 200, 0.05);
 }
 
 /* Scrollable news box */
@@ -48,7 +65,7 @@
   max-height: 120px;
   overflow-y: auto;
   scrollbar-width: thin;
-  scrollbar-color: #d4d4d4 transparent;
+  scrollbar-color: #1e293b transparent;
 }
 
 .news-scroll::-webkit-scrollbar {
@@ -56,56 +73,29 @@
 }
 
 .news-scroll::-webkit-scrollbar-thumb {
-  background: #d4d4d4;
+  background: #1e293b;
   border-radius: 2px;
 }
 
-/* Gallery masonry grid */
-.gallery-grid {
-  column-count: 3;
-  column-gap: 12px;
+.news-scroll::-webkit-scrollbar-thumb:hover {
+  background: #334155;
 }
 
-.gallery-item {
-  break-inside: avoid;
-  margin-bottom: 12px;
-  overflow: hidden;
-  transition: transform 200ms ease, box-shadow 200ms ease;
-}
-
-.gallery-item img {
+/* Scanline overlay effect */
+body::after {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
   width: 100%;
-  display: block;
-  transition: transform 400ms cubic-bezier(0.22, 1, 0.36, 1);
-}
-
-.gallery-item figcaption {
-  @apply text-sm text-neutral-500 py-2 px-1 transition-colors;
-}
-
-@media (hover: hover) {
-  .gallery-item:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
-  }
-
-  .gallery-item:hover img {
-    transform: scale(1.04);
-  }
-
-  .gallery-item:hover figcaption {
-    @apply text-blue-600;
-  }
-}
-
-@media (max-width: 768px) {
-  .gallery-grid {
-    column-count: 2;
-  }
-}
-
-@media (max-width: 480px) {
-  .gallery-grid {
-    column-count: 1;
-  }
+  height: 100%;
+  pointer-events: none;
+  z-index: 9999;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(0, 0, 0, 0.03) 2px,
+    rgba(0, 0, 0, 0.03) 4px
+  );
 }
