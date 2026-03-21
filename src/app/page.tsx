@@ -5,7 +5,7 @@ import Education from "@/components/Education";
 import Experience from "@/components/Experience";
 import Research from "@/components/Research";
 import Publications from "@/components/Publications";
-import Gallery from "@/components/Gallery";
+import Visitors from "@/components/Visitors";
 import Footer from "@/components/Footer";
 
 export default function Home() {
@@ -19,7 +19,7 @@ export default function Home() {
         <Experience />
         <Research />
         <Publications />
-        <Gallery />
+        <Visitors />
       </main>
       <Footer />
     </>
