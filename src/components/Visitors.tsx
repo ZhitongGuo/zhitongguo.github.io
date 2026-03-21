@@ -13,7 +13,7 @@ export default function Visitors() {
     script.type = "text/javascript";
     script.id = "clstr_globe";
     script.src =
-      "//clustrmaps.com/globe.js?d=REPLACE_WITH_YOUR_CLUSTRMAPS_ID&w=180";
+      "//clustrmaps.com/globe.js?d=IpOmOWxy0-p38X7mgCkXV16LIhDdgDn3uNLOmqsC4CM&w=180";
     containerRef.current?.appendChild(script);
 
     return () => {
