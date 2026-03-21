@@ -16,7 +16,7 @@ export default function Header() {
           href="#"
           className="font-semibold text-neutral-900 hover:text-blue-600 transition-colors text-sm"
         >
-          Payton Guo
+          Zhitong (Payton) Guo
         </a>
         <ul className="hidden sm:flex gap-5 text-sm text-neutral-500">
           {navItems.map((item) => (

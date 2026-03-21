@@ -16,7 +16,7 @@ export default function Hero() {
         {/* Bio text */}
         <div className="flex-1">
           <h1 className="text-2xl font-semibold text-neutral-500 border-b border-neutral-200 pb-2 mb-4">
-            Biography
+            {personal.name}
           </h1>
           <p
             className="text-[0.94rem] leading-relaxed text-neutral-700 mb-3"
