@@ -21,9 +21,9 @@ export const news: NewsItem[] = [
       "Joined Meta full-time as a Software Engineer on the Llama Research Platform team!",
   },
   {
-    date: "2025/01",
+    date: "2025/12",
     content:
-      'Our paper <em>TheAgentCompany</em> was accepted at <strong>ICLR 2025</strong>!',
+      'Our paper <em>TheAgentCompany</em> was accepted at <strong>NeurIPS 2025</strong>!',
   },
   {
     date: "2024/12",
@@ -161,7 +161,7 @@ export const publications: Publication[] = [
       "TheAgentCompany: Benchmarking LLM Agents on Consequential Real World Tasks",
     authors:
       "Frank F. Xu, Yufan Song, Boxuan Li, Yuxuan Tang, Kritanjali Jain, Mengxue Bao, <strong>Zhitong Guo</strong>, et al.",
-    venue: "ICLR 2025",
+    venue: "NeurIPS 2025",
     year: 2025,
     link: "https://arxiv.org/abs/2412.14161",
   },
