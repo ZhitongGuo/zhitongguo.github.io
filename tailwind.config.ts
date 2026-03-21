@@ -8,16 +8,8 @@ const config: Config = {
   ],
   theme: {
     extend: {
-      colors: {
-        accent: {
-          DEFAULT: "#6366f1",
-          light: "#818cf8",
-          dark: "#4f46e5",
-        },
-      },
-      fontFamily: {
-        sans: ["var(--font-inter)", "system-ui", "sans-serif"],
-        mono: ["var(--font-jetbrains)", "monospace"],
+      listStyleType: {
+        square: "square",
       },
     },
   },

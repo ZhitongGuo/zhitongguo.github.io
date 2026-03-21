@@ -2,33 +2,45 @@ import { experiences } from "@/data/resume";
 
 export default function Experience() {
   return (
-    <section id="experience" className="section-container">
-      <h2 className="section-heading">Experience</h2>
-      <div className="space-y-10">
+    <section id="experience" className="content-wrapper">
+      <h2 className="section-heading">Industry Experience</h2>
+      <div className="space-y-6">
         {experiences.map((exp) => (
-          <div key={`${exp.company}-${exp.period}`}>
-            <div className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1">
-              <h3 className="font-semibold text-neutral-900">
-                {exp.role}{" "}
-                <span className="text-neutral-400 font-normal">
-                  @ {exp.company}
-                </span>
-              </h3>
-              <span className="text-sm text-neutral-400 font-mono shrink-0">
-                {exp.period}
-              </span>
-            </div>
-            <p className="text-sm text-neutral-400 mt-0.5">{exp.location}</p>
-            <ul className="mt-3 space-y-1.5">
-              {exp.highlights.map((h, i) => (
-                <li
-                  key={i}
-                  className="text-sm text-neutral-600 leading-relaxed pl-4 relative before:content-[''] before:absolute before:left-0 before:top-[0.6em] before:w-1.5 before:h-1.5 before:rounded-full before:bg-neutral-300"
+          <div key={exp.company} className="entry-row">
+            <p className="font-semibold text-neutral-900">
+              {exp.companyUrl ? (
+                <a
+                  href={exp.companyUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="link-blue font-semibold"
                 >
-                  {h}
-                </li>
-              ))}
-            </ul>
+                  {exp.company}
+                </a>
+              ) : (
+                exp.company
+              )}
+            </p>
+            {exp.roles.map((role) => (
+              <div key={role.period} className="mt-2">
+                <div className="entry-header">
+                  <p className="text-[0.94rem] text-neutral-700 italic">
+                    {role.title}
+                  </p>
+                  <span className="entry-date">{role.period}</span>
+                </div>
+                <ul className="mt-1.5 space-y-1 list-square list-outside ml-5">
+                  {role.bullets.map((b, i) => (
+                    <li
+                      key={i}
+                      className="text-[0.94rem] text-neutral-600 leading-relaxed"
+                    >
+                      {b}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
           </div>
         ))}
       </div>

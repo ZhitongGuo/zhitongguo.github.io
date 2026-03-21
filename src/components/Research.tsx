@@ -2,25 +2,38 @@ import { research } from "@/data/resume";
 
 export default function Research() {
   return (
-    <section id="research" className="section-container">
-      <h2 className="section-heading">Research</h2>
-      <div className="space-y-10">
+    <section id="research" className="content-wrapper">
+      <h2 className="section-heading">Research Experience</h2>
+      <div className="space-y-6">
         {research.map((r) => (
-          <div key={`${r.institution}-${r.period}`}>
-            <div className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1">
-              <h3 className="font-semibold text-neutral-900">
-                {r.institution}
-              </h3>
-              <span className="text-sm text-neutral-400 font-mono shrink-0">
-                {r.period}
-              </span>
+          <div key={`${r.institution}-${r.period}`} className="entry-row">
+            <div className="entry-header">
+              <p className="font-semibold text-neutral-900">
+                {r.institutionUrl ? (
+                  <a
+                    href={r.institutionUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="link-blue font-semibold"
+                  >
+                    {r.institution}
+                  </a>
+                ) : (
+                  r.institution
+                )}
+              </p>
+              <span className="entry-date">{r.period}</span>
             </div>
-            <p className="text-sm text-neutral-500 mt-0.5">
-              {r.role} &middot; {r.advisor}
-            </p>
-            <p className="mt-3 text-sm text-neutral-600 leading-relaxed">
-              {r.description}
-            </p>
+            <p className="text-[0.94rem] text-neutral-700 italic">{r.role}</p>
+            <ul className="mt-1.5 space-y-1 list-square list-outside ml-5">
+              {r.bullets.map((b, i) => (
+                <li
+                  key={i}
+                  className="text-[0.94rem] text-neutral-600 leading-relaxed"
+                  dangerouslySetInnerHTML={{ __html: b }}
+                />
+              ))}
+            </ul>
           </div>
         ))}
       </div>

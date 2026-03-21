@@ -1,28 +1,30 @@
 "use client";
 
 const navItems = [
+  { label: "News", href: "#news" },
+  { label: "Education", href: "#education" },
   { label: "Experience", href: "#experience" },
   { label: "Research", href: "#research" },
   { label: "Publications", href: "#publications" },
-  { label: "Education", href: "#education" },
+  { label: "Gallery", href: "#gallery" },
 ];
 
 export default function Header() {
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-neutral-50/80 backdrop-blur-md border-b border-neutral-200/50">
-      <nav className="max-w-2xl mx-auto px-6 py-3 flex items-center justify-between">
+    <header className="sticky top-0 z-50 bg-white/90 backdrop-blur-sm border-b border-neutral-100">
+      <nav className="max-w-3xl mx-auto px-5 py-2.5 flex items-center justify-between">
         <a
           href="#"
-          className="font-semibold text-neutral-900 hover:text-accent transition-colors"
+          className="font-semibold text-neutral-900 hover:text-blue-600 transition-colors text-sm"
         >
-          ZG
+          Payton Guo
         </a>
-        <ul className="flex gap-6 text-sm text-neutral-500">
+        <ul className="hidden sm:flex gap-5 text-sm text-neutral-500">
           {navItems.map((item) => (
             <li key={item.href}>
               <a
                 href={item.href}
-                className="hover:text-neutral-900 transition-colors"
+                className="hover:text-neutral-800 transition-colors"
               >
                 {item.label}
               </a>

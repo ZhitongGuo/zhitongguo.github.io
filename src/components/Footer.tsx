@@ -1,9 +1,10 @@
 export default function Footer() {
   return (
-    <footer className="max-w-2xl mx-auto px-6 py-12 border-t border-neutral-200">
-      <p className="text-sm text-neutral-400 text-center">
-        &copy; {new Date().getFullYear()} Zhitong Guo
-      </p>
+    <footer className="max-w-3xl mx-auto px-5 mt-16 border-t border-neutral-200 py-4 flex items-center justify-between text-sm text-neutral-400">
+      <a href="#" className="hover:text-neutral-600 transition-colors">
+        Back to top
+      </a>
+      <span>&copy; {new Date().getFullYear()} Zhitong Guo</span>
     </footer>
   );
 }

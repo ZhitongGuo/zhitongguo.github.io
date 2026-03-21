@@ -2,39 +2,63 @@ import { personal } from "@/data/resume";
 
 export default function Hero() {
   return (
-    <section className="section-container pt-32 md:pt-40 pb-16">
-      <h1 className="text-4xl md:text-5xl font-bold text-neutral-900 tracking-tight">
-        {personal.name}
-      </h1>
-      <p className="mt-3 text-lg text-neutral-500">{personal.title}</p>
-      <p className="mt-4 text-neutral-600 leading-relaxed max-w-lg">
-        {personal.tagline}
-      </p>
-      <div className="mt-6 flex gap-4 text-sm">
-        <a
-          href={`mailto:${personal.email}`}
-          className="text-accent hover:text-accent-dark transition-colors"
-        >
-          Email
-        </a>
-        <span className="text-neutral-300">|</span>
-        <a
-          href={personal.linkedin}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-accent hover:text-accent-dark transition-colors"
-        >
-          LinkedIn
-        </a>
-        <span className="text-neutral-300">|</span>
-        <a
-          href={personal.github}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-accent hover:text-accent-dark transition-colors"
-        >
-          GitHub
-        </a>
+    <section className="content-wrapper pt-8">
+      <div className="flex flex-col sm:flex-row gap-6 sm:gap-10">
+        {/* Profile image */}
+        <div className="shrink-0">
+          <div className="w-48 h-48 rounded-2xl bg-neutral-100 overflow-hidden">
+            {/* Replace with actual photo */}
+            <div className="w-full h-full flex items-center justify-center text-neutral-400 text-sm">
+              Photo
+            </div>
+          </div>
+        </div>
+
+        {/* Bio text */}
+        <div className="flex-1">
+          <h1 className="text-2xl font-semibold text-neutral-500 border-b border-neutral-200 pb-2 mb-4">
+            Biography
+          </h1>
+          <p
+            className="text-[0.94rem] leading-relaxed text-neutral-700 mb-3"
+            dangerouslySetInnerHTML={{ __html: personal.bio }}
+          />
+          <p
+            className="text-[0.94rem] leading-relaxed text-neutral-700 mb-5"
+            dangerouslySetInnerHTML={{ __html: personal.bio2 }}
+          />
+
+          {/* Contact links */}
+          <div className="flex flex-wrap gap-x-5 gap-y-2 text-sm">
+            <a href={`mailto:${personal.email}`} className="link-blue">
+              Mail
+            </a>
+            <a
+              href={personal.github}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="link-blue"
+            >
+              GitHub
+            </a>
+            <a
+              href={personal.linkedin}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="link-blue"
+            >
+              LinkedIn
+            </a>
+            <a
+              href={personal.scholar}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="link-blue"
+            >
+              Google Scholar
+            </a>
+          </div>
+        </div>
       </div>
     </section>
   );

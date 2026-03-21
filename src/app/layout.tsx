@@ -1,21 +1,16 @@
 import type { Metadata } from "next";
-import { Inter, JetBrains_Mono } from "next/font/google";
+import { Source_Sans_3 } from "next/font/google";
 import "./globals.css";
 
-const inter = Inter({
+const sourceSans = Source_Sans_3({
   subsets: ["latin"],
-  variable: "--font-inter",
-});
-
-const jetbrains = JetBrains_Mono({
-  subsets: ["latin"],
-  variable: "--font-jetbrains",
+  variable: "--font-source-sans",
 });
 
 export const metadata: Metadata = {
   title: "Zhitong (Payton) Guo",
   description:
-    "Software Engineer building infrastructure for large-scale AI systems.",
+    "Software Engineer at Meta, building infrastructure for large-scale AI systems.",
 };
 
 export default function RootLayout({
@@ -24,8 +19,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${inter.variable} ${jetbrains.variable}`}>
-      <body className="font-sans">{children}</body>
+    <html lang="en" className={sourceSans.variable}>
+      <body className="font-[family-name:var(--font-source-sans)]">
+        {children}
+      </body>
     </html>
   );
 }

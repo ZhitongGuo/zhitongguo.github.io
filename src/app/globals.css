@@ -5,23 +5,107 @@
 @layer base {
   html {
     scroll-behavior: smooth;
+    -webkit-text-size-adjust: none;
   }
 
   body {
-    @apply bg-neutral-50 text-neutral-800 antialiased;
+    @apply bg-white text-neutral-800 antialiased;
   }
 
   ::selection {
-    @apply bg-accent/20 text-accent-dark;
+    @apply bg-indigo-100 text-indigo-900;
   }
 }
 
 @layer components {
   .section-heading {
-    @apply text-sm font-semibold uppercase tracking-widest text-accent mb-8;
+    @apply text-xl font-semibold text-neutral-900 border-b border-neutral-200 pb-2 mb-5 mt-10;
   }
 
-  .section-container {
-    @apply max-w-2xl mx-auto px-6 py-16 md:py-24;
+  .content-wrapper {
+    @apply max-w-3xl mx-auto px-5 py-6;
+  }
+
+  .entry-row {
+    @apply mb-5;
+  }
+
+  .entry-header {
+    @apply flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-0.5;
+  }
+
+  .entry-date {
+    @apply text-sm text-neutral-500 italic shrink-0;
+  }
+
+  .link-blue {
+    @apply text-[#2563eb] hover:underline decoration-neutral-400 underline-offset-2;
+  }
+}
+
+/* Scrollable news box */
+.news-scroll {
+  max-height: 120px;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: #d4d4d4 transparent;
+}
+
+.news-scroll::-webkit-scrollbar {
+  width: 4px;
+}
+
+.news-scroll::-webkit-scrollbar-thumb {
+  background: #d4d4d4;
+  border-radius: 2px;
+}
+
+/* Gallery masonry grid */
+.gallery-grid {
+  column-count: 3;
+  column-gap: 12px;
+}
+
+.gallery-item {
+  break-inside: avoid;
+  margin-bottom: 12px;
+  overflow: hidden;
+  transition: transform 200ms ease, box-shadow 200ms ease;
+}
+
+.gallery-item img {
+  width: 100%;
+  display: block;
+  transition: transform 400ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.gallery-item figcaption {
+  @apply text-sm text-neutral-500 py-2 px-1 transition-colors;
+}
+
+@media (hover: hover) {
+  .gallery-item:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
+  }
+
+  .gallery-item:hover img {
+    transform: scale(1.04);
+  }
+
+  .gallery-item:hover figcaption {
+    @apply text-blue-600;
+  }
+}
+
+@media (max-width: 768px) {
+  .gallery-grid {
+    column-count: 2;
+  }
+}
+
+@media (max-width: 480px) {
+  .gallery-grid {
+    column-count: 1;
   }
 }
