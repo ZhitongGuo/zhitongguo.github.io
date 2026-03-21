@@ -6,12 +6,11 @@ export default function Hero() {
       <div className="flex flex-col sm:flex-row gap-6 sm:gap-10">
         {/* Profile image */}
         <div className="shrink-0">
-          <div className="w-48 h-48 rounded-2xl bg-neutral-100 overflow-hidden">
-            {/* Replace with actual photo */}
-            <div className="w-full h-full flex items-center justify-center text-neutral-400 text-sm">
-              Photo
-            </div>
-          </div>
+          <img
+            src="/profile.jpg"
+            alt="Zhitong (Payton) Guo"
+            className="w-48 h-48 rounded-2xl object-cover"
+          />
         </div>
 
         {/* Bio text */}
