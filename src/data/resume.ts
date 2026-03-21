@@ -16,14 +16,14 @@ export interface NewsItem {
 
 export const news: NewsItem[] = [
   {
-    date: "2025/02",
-    content:
-      "Joined Meta full-time as a Software Engineer at Superintelligence Labs!",
-  },
-  {
     date: "2025/12",
     content:
       'Our paper <em>TheAgentCompany</em> was accepted at <strong>NeurIPS 2025</strong>!',
+  },
+  {
+    date: "2025/02",
+    content:
+      "Joined Meta full-time as a Software Engineer at Superintelligence Labs!",
   },
   {
     date: "2024/12",
