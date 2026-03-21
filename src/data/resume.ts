@@ -23,7 +23,7 @@ export const news: NewsItem[] = [
   {
     date: "2025/02",
     content:
-      "Joined Meta full-time as a Software Engineer at Superintelligence Labs!",
+      "Joined Meta full-time as a Software Engineer on the GenAI Llama Research Platform team!",
   },
   {
     date: "2024/12",
