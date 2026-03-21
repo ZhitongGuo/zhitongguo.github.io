@@ -16,9 +16,9 @@ export interface NewsItem {
 
 export const news: NewsItem[] = [
   {
-    date: "2025/01",
+    date: "2025/02",
     content:
-      "Joined Meta full-time as a Software Engineer on the Llama Research Platform team!",
+      "Joined Meta full-time as a Software Engineer at Superintelligence Labs!",
   },
   {
     date: "2025/12",
@@ -76,7 +76,7 @@ export const experiences: ExperienceEntry[] = [
     roles: [
       {
         title: "Software Engineer, Kernels & Optimizations, Superintelligence Labs",
-        period: "Jan 2025 — Present",
+        period: "Feb 2025 — Present",
         bullets: [
           "Building ML infrastructure for large-scale model training across GPU architectures.",
           "Developing end-to-end test infrastructure (Granary) for nightly benchmark validation.",
