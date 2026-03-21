@@ -1,6 +1,6 @@
 export const personal = {
   name: "Zhitong (Payton) Guo",
-  bio: `My work focuses on ML infrastructure and systems for large-scale model training. I am currently a Software Engineer at <a href="https://about.meta.com/" target="_blank" rel="noopener noreferrer">Meta</a>, working on the Llama Research Platform team in GenAI infrastructure. I'm particularly interested in <strong>Computer Use Agents</strong> and <strong>agent harnesses</strong> — building the systems that enable LLM-powered agents to autonomously interact with software environments and complete real-world tasks.`,
+  bio: `My work focuses on ML infrastructure and systems for large-scale model training. I am currently a Software Engineer at <a href="https://about.meta.com/" target="_blank" rel="noopener noreferrer">Meta Superintelligence Labs</a>, on the Kernels & Optimizations team. I'm particularly interested in <strong>Computer Use Agents</strong> and <strong>agent harnesses</strong> — building the systems that enable LLM-powered agents to autonomously interact with software environments and complete real-world tasks.`,
   bio2: `Previously, I interned at <a href="https://about.meta.com/" target="_blank" rel="noopener noreferrer">Meta</a> on YaRN positional encoding for context length extension, at <a href="https://www.alibabacloud.com/" target="_blank" rel="noopener noreferrer">Alibaba Cloud</a> on distributed computing, and conducted research on LLM agents at <a href="https://www.cmu.edu/" target="_blank" rel="noopener noreferrer">Carnegie Mellon University</a> and dialogue systems at <a href="https://www.columbia.edu/" target="_blank" rel="noopener noreferrer">Columbia University</a>. I'm driven by building reliable infrastructure that makes AI agents practical at scale.`,
   email: "zhitongg@alumni.cmu.edu",
   linkedin: "https://www.linkedin.com/in/zhitong-guo",
@@ -75,7 +75,7 @@ export const experiences: ExperienceEntry[] = [
     companyUrl: "https://about.meta.com/",
     roles: [
       {
-        title: "Software Engineer, Llama Research Platform, GenAI Infra",
+        title: "Software Engineer, Kernels & Optimizations, Superintelligence Labs",
         period: "Jan 2025 — Present",
         bullets: [
           "Building ML infrastructure for large-scale model training across GPU architectures.",
