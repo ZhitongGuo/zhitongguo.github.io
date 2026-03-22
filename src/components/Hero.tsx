@@ -54,6 +54,15 @@ export default function Hero() {
             </a>
             <span className="text-cyan-900">{"/"}{"/"}  </span>
             <a
+              href={personal.twitter}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="link-neon"
+            >
+              x
+            </a>
+            <span className="text-cyan-900">{"/"}{"/"}  </span>
+            <a
               href={personal.scholar}
               target="_blank"
               rel="noopener noreferrer"

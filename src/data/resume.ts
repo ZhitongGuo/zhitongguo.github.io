@@ -5,6 +5,7 @@ export const personal = {
   email: "zhitongg@alumni.cmu.edu",
   linkedin: "https://www.linkedin.com/in/zhitong-guo",
   github: "https://github.com/zhitongguo",
+  twitter: "https://x.com/topayton401",
   scholar: "https://scholar.google.com/citations?user=PLACEHOLDER",
   profileImage: "/profile.jpg",
 };
