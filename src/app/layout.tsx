@@ -16,6 +16,9 @@ export const metadata: Metadata = {
   title: "Zhitong (Payton) Guo",
   description:
     "Software Engineer at Meta, building infrastructure for large-scale AI systems.",
+  icons: {
+    icon: "/favicon.svg",
+  },
 };
 
 export default function RootLayout({
