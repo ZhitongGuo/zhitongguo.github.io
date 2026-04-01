@@ -3,10 +3,10 @@ export const personal = {
   bio: `My work focuses on ML infrastructure and systems for large-scale model training. I am currently a Software Engineer at <a href="https://about.meta.com/" target="_blank" rel="noopener noreferrer">Meta Superintelligence Labs</a>, on the Kernels & Optimizations team. I'm particularly interested in <strong>Computer Use Agents</strong> and <strong>agent harnesses</strong> — building the systems that enable LLM-powered agents to autonomously interact with software environments and complete real-world tasks.`,
   bio2: `Previously, I interned at <a href="https://about.meta.com/" target="_blank" rel="noopener noreferrer">Meta</a> on YaRN positional encoding for context length extension, at <a href="https://www.alibabacloud.com/" target="_blank" rel="noopener noreferrer">Alibaba Cloud</a> on distributed computing, and conducted research on LLM agents at <a href="https://www.cmu.edu/" target="_blank" rel="noopener noreferrer">Carnegie Mellon University</a> and dialogue systems at <a href="https://www.columbia.edu/" target="_blank" rel="noopener noreferrer">Columbia University</a>. I'm driven by building reliable infrastructure that makes AI agents practical at scale.`,
   email: "zhitongg@alumni.cmu.edu",
-  linkedin: "https://www.linkedin.com/in/zhitong-guo",
+  linkedin: "https://www.linkedin.com/in/payton-guo/",
   github: "https://github.com/zhitongguo",
   twitter: "https://x.com/topayton401",
-  scholar: "https://scholar.google.com/citations?user=PLACEHOLDER",
+  scholar: "https://scholar.google.com/citations?hl=en&user=QGjjNfQAAAAJ",
   profileImage: "/profile.jpg",
 };
 
