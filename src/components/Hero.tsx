@@ -20,6 +20,9 @@ export default function Hero() {
           <h1 className="text-2xl font-bold font-mono text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400 border-b border-cyan-900/50 pb-2 mb-4 glow-text">
             {personal.name}
           </h1>
+          <p className="text-sm font-mono text-neutral-300 mb-4">
+            {personal.tagline}
+          </p>
           <p
             className="text-[0.94rem] leading-relaxed text-neutral-400 mb-3 [&_a]:text-cyan-400 [&_a]:hover:text-cyan-300 [&_a]:transition-colors"
             dangerouslySetInnerHTML={{ __html: personal.bio }}
