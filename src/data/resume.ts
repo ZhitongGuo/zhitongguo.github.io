@@ -1,7 +1,7 @@
 export const personal = {
   name: "Zhitong (Payton) Guo",
-  bio: `My work focuses on ML infrastructure and systems for large-scale model training. I am currently a Software Engineer at <a href="https://about.meta.com/" target="_blank" rel="noopener noreferrer">Meta Superintelligence Labs</a>, on the Kernels & Optimizations team. I'm particularly interested in <strong>Computer Use Agents</strong> and <strong>agent harnesses</strong> — building the systems that enable LLM-powered agents to autonomously interact with software environments and complete real-world tasks.`,
-  bio2: `Previously, I interned at <a href="https://about.meta.com/" target="_blank" rel="noopener noreferrer">Meta</a> on YaRN positional encoding for context length extension, at <a href="https://www.alibabacloud.com/" target="_blank" rel="noopener noreferrer">Alibaba Cloud</a> on distributed computing, and conducted research on LLM agents at <a href="https://www.cmu.edu/" target="_blank" rel="noopener noreferrer">Carnegie Mellon University</a> and dialogue systems at <a href="https://www.columbia.edu/" target="_blank" rel="noopener noreferrer">Columbia University</a>. I'm driven by building reliable infrastructure that makes AI agents practical at scale.`,
+  bio: `My work focuses on post-training for <strong>Muse</strong> — training and inference for a personal superintelligence in production. I am currently a Software Engineer at <a href="https://about.meta.com/" target="_blank" rel="noopener noreferrer">Meta Superintelligence Labs</a>, in Product and Applied Research (PAR). My recent work is the data flywheel for Muse: turning real product usage into post-training improvements. I'm particularly interested in <strong>training</strong> and <strong>inference</strong> — building the systems that make large models better, and faster, in real products.`,
+  bio2: `Previously, I worked on ML infrastructure for large-scale model training on the Kernels & Optimizations team, interned at <a href="https://about.meta.com/" target="_blank" rel="noopener noreferrer">Meta</a> on YaRN positional encoding for context length extension, at <a href="https://www.alibabacloud.com/" target="_blank" rel="noopener noreferrer">Alibaba Cloud</a> on distributed computing, and conducted research on LLM agents at <a href="https://www.cmu.edu/" target="_blank" rel="noopener noreferrer">Carnegie Mellon University</a> and dialogue systems at <a href="https://www.columbia.edu/" target="_blank" rel="noopener noreferrer">Columbia University</a>. I'm driven by building reliable infrastructure that makes AI agents practical at scale.`,
   email: "zhitongg@alumni.cmu.edu",
   linkedin: "https://www.linkedin.com/in/payton-guo/",
   github: "https://github.com/zhitongguo",
@@ -16,6 +16,11 @@ export interface NewsItem {
 }
 
 export const news: NewsItem[] = [
+  {
+    date: "2026/10",
+    content:
+      "Now in MSL PAR (Product and Applied Research), working on post-training for <strong>Muse</strong>!",
+  },
   {
     date: "2025/12",
     content:
@@ -76,12 +81,12 @@ export const experiences: ExperienceEntry[] = [
     companyUrl: "https://about.meta.com/",
     roles: [
       {
-        title: "Software Engineer, Kernels & Optimizations, Superintelligence Labs",
+        title: "Software Engineer, Product and Applied Research (PAR), Superintelligence Labs",
         period: "Feb 2025 — Present",
         bullets: [
-          "Building ML infrastructure for large-scale model training across GPU architectures.",
-          "Developing end-to-end test infrastructure (Granary) for nightly benchmark validation.",
-          "Enabling training workloads on next-generation hardware (GB200/GB300).",
+          "Post-training for Muse, building the data flywheel for Muse.",
+          "Working across training and inference for Muse in production.",
+          "Previously on Kernels & Optimizations: ML infrastructure for large-scale model training, end-to-end test infrastructure (Granary) for nightly benchmark validation, and enabling training workloads on next-generation hardware (GB200/GB300).",
         ],
       },
       {
@@ -157,6 +162,15 @@ export interface Publication {
 }
 
 export const publications: Publication[] = [
+  {
+    title:
+      "Toward User-Conditioned Evaluation of Personal LLM Agents under Temporal Interventions",
+    authors:
+      "Pin Qian, Su Wang, Yihang Chen, Qiaolin Yu, Xiaoyuan Wang, <strong>Zhitong Guo</strong>, Zhicheng Wang, Junxian You",
+    venue: "KDD 2026 Workshop PILA (Oral)",
+    year: 2026,
+    link: "https://arxiv.org/abs/2607.21635",
+  },
   {
     title:
       "TheAgentCompany: Benchmarking LLM Agents on Consequential Real World Tasks",
