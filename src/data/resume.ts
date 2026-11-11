@@ -2,7 +2,7 @@ export const personal = {
   name: "Zhitong (Payton) Guo",
   tagline: "human 👭 agents 👭 earth 👭 universe",
   bio: `My work focuses on post-training and inference for <strong>Muse</strong>. I am currently a Research Scientist at <a href="https://about.meta.com/" target="_blank" rel="noopener noreferrer">Meta Superintelligence Labs</a>, in Product and Applied Research (PAR). I'm particularly interested in <strong>training</strong> and <strong>inference</strong>, and in agent-to-agent communication — building the systems that make large models better, and faster, in real products.`,
-  bio2: `Previously, I worked on ML infrastructure for large-scale model training on the Kernels & Optimizations team, interned at <a href="https://about.meta.com/" target="_blank" rel="noopener noreferrer">Meta</a> on YaRN positional encoding for context length extension, at <a href="https://www.alibabacloud.com/" target="_blank" rel="noopener noreferrer">Alibaba Cloud</a> on distributed computing, and conducted research on LLM agents at <a href="https://www.cmu.edu/" target="_blank" rel="noopener noreferrer">Carnegie Mellon University</a> and dialogue systems at <a href="https://www.columbia.edu/" target="_blank" rel="noopener noreferrer">Columbia University</a>. I'm driven by building reliable infrastructure that makes AI agents practical at scale.`,
+  bio2: `Previously, I worked on the Llama Research Platform team on the post-training platform and ML infrastructure for large-scale model training. I interned at <a href="https://about.meta.com/" target="_blank" rel="noopener noreferrer">Meta</a> on YaRN positional encoding for context length extension, at <a href="https://www.alibabacloud.com/" target="_blank" rel="noopener noreferrer">Alibaba Cloud</a> on distributed computing, and conducted research on LLM agents at <a href="https://www.cmu.edu/" target="_blank" rel="noopener noreferrer">Carnegie Mellon University</a> and dialogue systems at <a href="https://www.columbia.edu/" target="_blank" rel="noopener noreferrer">Columbia University</a>. I'm driven by building reliable infrastructure that makes AI agents practical at scale.`,
   email: "zhitongg@alumni.cmu.edu",
   linkedin: "https://www.linkedin.com/in/payton-guo/",
   github: "https://github.com/zhitongguo",
@@ -93,16 +93,17 @@ export const experiences: ExperienceEntry[] = [
         ],
       },
       {
-        title: "Software Engineer, Kernels & Optimizations, Superintelligence Labs",
+        title: "Software Engineer, Llama Research Platform, Superintelligence Labs",
         period: "Feb 2025 — Aug 2026",
         bullets: [
+          "Working on the post-training platform.",
           "Building ML infrastructure for large-scale model training across GPU architectures.",
           "Developing end-to-end test infrastructure (Granary) for nightly benchmark validation.",
           "Enabling training workloads on next-generation hardware (GB200/GB300).",
         ],
       },
       {
-        title: "Software Engineer Intern, Llama Model Training",
+        title: "Software Engineer Intern, GenAI — Llama Model Development",
         period: "May 2024 — Aug 2024",
         bullets: [
           "Implemented YaRN positional encoding for context length extension during supervised fine-tuning.",
