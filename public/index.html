@@ -1,0 +1,502 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Zhitong (Payton) Guo</title>
+<meta name="description" content="Software Engineer at Meta, building infrastructure for large-scale AI systems.">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#fbfaf7" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0b0c10" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<style>
+:root {
+  --bg: #fbfaf7;
+  --card: #f3f1ec;
+  --fg: #1c1c1f;
+  --muted: #505058;
+  --faint: #75757d;
+  --line: rgba(0, 0, 0, 0.11);
+  --agent: #0e7490;
+  --human: #b45309;
+  --ok: #15803d;
+  --no: #b91c1c;
+  --link: #0e7490;
+  --serif: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+  --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0b0c10;
+    --card: #12141a;
+    --fg: #ececf1;
+    --muted: #a7a7b0;
+    --faint: #8c8c96;
+    --line: rgba(255, 255, 255, 0.1);
+    --agent: #22d3ee;
+    --human: #fbbf24;
+    --ok: #4ade80;
+    --no: #f87171;
+    --link: #67e8f9;
+  }
+}
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body { margin: 0; background: var(--bg); color: var(--fg); font: 16px/1.6 var(--sans); -webkit-font-smoothing: antialiased; }
+a { color: var(--link); text-decoration: none; }
+a:hover { text-decoration: underline; text-underline-offset: 3px; }
+:focus-visible { outline: 2px solid var(--agent); outline-offset: 3px; border-radius: 4px; }
+
+.page {
+  max-width: 1120px;
+  min-height: calc(100vh - 64px);
+  margin: 0 auto;
+  padding: 48px 28px;
+  display: grid;
+  grid-template-columns: 320px minmax(0, 1fr);
+  gap: 56px;
+  align-items: center;
+}
+.avatar {
+  display: block;
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: 50% 30%;
+  border: 1px solid var(--line);
+}
+h1 { font: 600 1.75rem/1.2 var(--serif); margin: 22px 0 10px; letter-spacing: -0.01em; }
+.motto { font: 15px/1.5 var(--mono); margin: 0 0 18px; }
+.intro { color: var(--muted); margin: 0 0 20px; }
+.intro strong { color: var(--fg); }
+.links { list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: 8px; font: 13px var(--mono); }
+.links a {
+  display: inline-block;
+  padding: 4px 11px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  color: var(--fg);
+}
+.links a:hover { border-color: var(--agent); color: var(--agent); text-decoration: none; }
+
+.scene { border: 1px solid var(--line); border-radius: 16px; background: var(--card); overflow: hidden; }
+.chips { display: flex; flex-wrap: wrap; gap: 6px; padding: 14px 14px 0; }
+.chips button {
+  font: 13px var(--sans);
+  color: var(--muted);
+  background: transparent;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 4px 11px;
+  cursor: pointer;
+}
+.chips button:hover { color: var(--fg); }
+.chips button[aria-selected="true"] { color: var(--bg); background: var(--fg); border-color: var(--fg); }
+#scene { display: block; width: 100%; height: 380px; }
+.caption {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 16px;
+  padding: 0 18px 16px;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+.caption p { margin: 0; }
+.legend { font: 12px var(--mono); color: var(--faint); white-space: nowrap; }
+.legend i { display: inline-block; width: 8px; height: 8px; margin: 0 4px 0 10px; }
+.legend .h { border-radius: 50%; background: var(--human); }
+.legend .a { border-radius: 2px; background: var(--agent); }
+
+footer {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 0 28px 28px;
+  font: 12px var(--mono);
+  color: var(--faint);
+}
+
+@media (max-width: 860px) {
+  .page { grid-template-columns: 1fr; gap: 32px; padding-top: 32px; min-height: 0; }
+  .who { display: grid; grid-template-columns: 96px 1fr; gap: 0 18px; align-items: center; }
+  .avatar { width: 96px; height: 96px; grid-row: span 2; }
+  h1 { margin: 0 0 6px; font-size: 1.45rem; }
+  .motto { margin: 0; font-size: 14px; }
+  .intro, .links { grid-column: 1 / -1; }
+  .intro { margin-top: 18px; }
+}
+@media (max-width: 560px) {
+  .page { padding-left: 18px; padding-right: 18px; }
+  #scene { height: 240px; }
+  .chips button { font-size: 12.5px; padding: 3px 9px; }
+  .caption { flex-direction: column; gap: 6px; }
+  .legend i:first-child { margin-left: 0; }
+  footer { padding-left: 18px; }
+}
+</style>
+</head>
+<body>
+<main class="page">
+  <section class="who">
+    <img class="avatar" src="profile.jpg" alt="Zhitong (Payton) Guo" width="160" height="160">
+    <h1>Zhitong (Payton) Guo</h1>
+    <p class="motto">human 👭 agents 👭 earth 👭 universe</p>
+    <p class="intro">My work focuses on post-training and inference for <strong>Muse</strong>. I am currently a Research Scientist at <a href="https://about.meta.com/" target="_blank" rel="noopener noreferrer">Meta Superintelligence Labs</a>.</p>
+    <ul class="links">
+      <li><a href="mailto:zhitongg@alumni.cmu.edu">mail</a></li>
+      <li><a href="https://github.com/zhitongguo" target="_blank" rel="noopener noreferrer">github</a></li>
+      <li><a href="https://www.linkedin.com/in/payton-guo/" target="_blank" rel="noopener noreferrer">linkedin</a></li>
+      <li><a href="https://x.com/topayton401" target="_blank" rel="noopener noreferrer">x</a></li>
+      <li><a href="https://scholar.google.com/citations?hl=en&amp;user=QGjjNfQAAAAJ" target="_blank" rel="noopener noreferrer">scholar</a></li>
+    </ul>
+  </section>
+
+  <section class="patterns" aria-label="Ways humans and agents work together">
+    <div class="scene">
+      <div class="chips" role="tablist" aria-label="Pattern"></div>
+      <canvas id="scene" role="img" aria-label=""></canvas>
+      <div class="caption">
+        <p id="hint"></p>
+        <span class="legend" aria-hidden="true"><i class="h"></i>human<i class="a"></i>agent</span>
+      </div>
+    </div>
+  </section>
+</main>
+<footer>© <span id="yr">2026</span> zhitong.guo</footer>
+
+<script>
+(function () {
+  "use strict";
+  document.getElementById("yr").textContent = new Date().getFullYear();
+  var cv = document.getElementById("scene");
+  var ctx = cv.getContext && cv.getContext("2d");
+  if (!ctx) return;
+  var reduceQ = window.matchMedia("(prefers-reduced-motion: reduce)");
+  var darkQ = window.matchMedia("(prefers-color-scheme: dark)");
+  var chipsEl = document.querySelector(".chips");
+  var hintEl = document.getElementById("hint");
+
+  // ---- drawing helpers (scenes are drawn in a 600 x 320 design space) ----
+  var W = 0, H = 0, S = 1, G = 1, C = {};
+  function colors() {
+    var st = getComputedStyle(document.documentElement);
+    ["agent", "human", "ok", "no", "faint", "fg", "card", "line", "muted"].forEach(function (k) {
+      C[k] = st.getPropertyValue("--" + k).trim();
+    });
+  }
+  function resize() {
+    var r = cv.getBoundingClientRect(), dpr = Math.min(window.devicePixelRatio || 1, 2);
+    W = r.width; H = r.height;
+    cv.width = Math.round(W * dpr); cv.height = Math.round(H * dpr);
+    S = Math.min(W / 600, H / 320);
+    G = Math.max(S, 0.8) / S;                 // keeps glyphs readable on small screens
+    ctx.setTransform(dpr * S, 0, 0, dpr * S, dpr * (W - 600 * S) / 2, dpr * (H - 320 * S) / 2);
+  }
+  function clamp(x) { return x < 0 ? 0 : x > 1 ? 1 : x; }
+  function seg(t, a, b) { return clamp((t - a) / (b - a)); }
+  function ease(p) { return p < 0.5 ? 2 * p * p : 1 - Math.pow(-2 * p + 2, 2) / 2; }
+  function lerp(a, b, p) { return { x: a.x + (b.x - a.x) * p, y: a.y + (b.y - a.y) * p }; }
+  function on(t, a, b) { return t >= a && t < b; }
+  function fade(t, a, b) { return Math.min(seg(t, a, a + 200), 1 - seg(t, b - 200, b)); }
+
+  function link(a, b, alpha, width, color) {
+    if (alpha <= 0) return;
+    ctx.globalAlpha = alpha; ctx.strokeStyle = color || C.faint; ctx.lineWidth = (width || 1) / S;
+    ctx.beginPath(); ctx.moveTo(a.x, a.y); ctx.lineTo(b.x, b.y); ctx.stroke(); ctx.globalAlpha = 1;
+  }
+  function human(p, glow) {
+    var r = 9 * G;
+    ctx.fillStyle = C.human; ctx.beginPath(); ctx.arc(p.x, p.y, r, 0, 6.2832); ctx.fill();
+    if (glow > 0) {
+      ctx.globalAlpha = glow * 0.6; ctx.strokeStyle = C.human; ctx.lineWidth = 1.5 / S;
+      ctx.beginPath(); ctx.arc(p.x, p.y, r + 6 * G, 0, 6.2832); ctx.stroke(); ctx.globalAlpha = 1;
+    }
+  }
+  function agent(p, busy, big, color, alpha) {
+    var h = (big ? 9 : 7) * G;
+    ctx.globalAlpha = alpha == null ? 1 : alpha;
+    ctx.fillStyle = color || C.agent; ctx.fillRect(p.x - h, p.y - h, h * 2, h * 2);
+    if (busy > 0) {
+      ctx.globalAlpha *= busy * 0.7; ctx.strokeStyle = color || C.agent; ctx.lineWidth = 1.5 / S;
+      var o = h + 4 * G; ctx.strokeRect(p.x - o, p.y - o, o * 2, o * 2);
+    }
+    ctx.globalAlpha = 1;
+  }
+  function msg(a, b, p, color) {
+    if (p <= 0 || p >= 1) return;
+    var q = lerp(a, b, ease(p));
+    ctx.fillStyle = color || C.agent; ctx.beginPath(); ctx.arc(q.x, q.y, 3.2 * G, 0, 6.2832); ctx.fill();
+  }
+  function text(p, s, color, alpha, align) {
+    if (alpha <= 0) return;
+    ctx.save(); ctx.translate(p.x, p.y); ctx.scale(1 / S, 1 / S);
+    ctx.globalAlpha = alpha; ctx.fillStyle = color || C.faint;
+    ctx.font = "11px ui-monospace, Menlo, monospace"; ctx.textAlign = align || "center"; ctx.textBaseline = "middle";
+    ctx.fillText(s, 0, 0); ctx.restore();
+  }
+  function pill(p, s, color, alpha) {
+    if (alpha <= 0) return;
+    ctx.save(); ctx.translate(p.x, p.y); ctx.scale(1 / S, 1 / S);
+    ctx.font = "12px ui-monospace, Menlo, monospace";
+    var w = ctx.measureText(s).width + 14, h = 20;
+    ctx.globalAlpha = alpha;
+    ctx.fillStyle = C.card; ctx.strokeStyle = color; ctx.lineWidth = 1;
+    ctx.beginPath();
+    if (ctx.roundRect) ctx.roundRect(-w / 2, -h / 2, w, h, 10); else ctx.rect(-w / 2, -h / 2, w, h);
+    ctx.fill(); ctx.stroke();
+    ctx.fillStyle = color; ctx.textAlign = "center"; ctx.textBaseline = "middle"; ctx.fillText(s, 0, 1);
+    ctx.restore();
+  }
+  function doc(p, alpha, color) {
+    var w = 11 * G, h = 14 * G;
+    ctx.globalAlpha = alpha; ctx.fillStyle = C.card; ctx.strokeStyle = color || C.fg; ctx.lineWidth = 1.2 / S;
+    ctx.fillRect(p.x - w / 2, p.y - h / 2, w, h); ctx.strokeRect(p.x - w / 2, p.y - h / 2, w, h);
+    for (var i = 0; i < 3; i++) link({ x: p.x - w / 2 + 2.5 * G, y: p.y - h / 2 + (4 + i * 3.2) * G }, { x: p.x + w / 2 - 2.5 * G, y: p.y - h / 2 + (4 + i * 3.2) * G }, alpha, 1, color || C.fg);
+    ctx.globalAlpha = 1;
+  }
+  function pulse(t) { return 0.5 + 0.5 * Math.sin(t * 0.008); }
+  function P(x, y) { return { x: x, y: y }; }
+
+  // ---- the patterns -------------------------------------------------------
+  var scenes = [
+    {
+      name: "Human in the loop",
+      hint: "The agent stops and asks before it acts.",
+      period: 6200, key: 2050,
+      draw: function (t) {
+        var Hm = P(90, 230), A0 = P(200, 130), Sx = P(360, 130), Gl = P(520, 130);
+        ctx.setLineDash([4 / S, 5 / S]); link(A0, Gl, 0.5); ctx.setLineDash([]);
+        var done = t > 4500;
+        ctx.globalAlpha = 1; ctx.strokeStyle = done ? C.ok : C.faint; ctx.lineWidth = 1.5 / S;
+        ctx.strokeRect(Gl.x - 11 * G, Gl.y - 11 * G, 22 * G, 22 * G);
+        if (done) { ctx.globalAlpha = seg(t, 4500, 4800); ctx.fillStyle = C.ok; ctx.fillRect(Gl.x - 7 * G, Gl.y - 7 * G, 14 * G, 14 * G); ctx.globalAlpha = 1; }
+        text(P(Gl.x, Gl.y + 26 * G), "task", C.faint, 1);
+        var a = t < 1200 ? lerp(A0, Sx, ease(seg(t, 0, 1200))) : t < 3300 ? Sx : lerp(Sx, P(Gl.x - 26 * G, Gl.y), ease(seg(t, 3300, 4500)));
+        link(a, Hm, 0.5 * Math.min(seg(t, 1100, 1300), 1 - seg(t, 3300, 3600)));
+        msg(a, Hm, seg(t, 1250, 1950), C.agent);
+        msg(Hm, a, seg(t, 2650, 3300), C.human);
+        human(Hm, on(t, 1950, 2650) ? pulse(t) : 0);
+        agent(a, on(t, 1200, 3300) ? 0.6 : 0);
+        pill(P(a.x, a.y - 30 * G), "approve?", C.agent, fade(t, 1200, 3300));
+        pill(P(Hm.x, Hm.y - 32 * G), "yes", C.ok, fade(t, 2600, 3700));
+      }
+    },
+    {
+      name: "Orchestrator & workers",
+      hint: "One agent splits the task; workers send results back.",
+      period: 6000, key: 1150,
+      draw: function (t) {
+        var Hm = P(70, 160), O = P(220, 160), Wk = [P(440, 55), P(440, 125), P(440, 195), P(440, 265)];
+        link(Hm, O, 0.45);
+        Wk.forEach(function (w) { link(O, w, 0.35); });
+        msg(Hm, O, seg(t, 0, 700), C.human);
+        Wk.forEach(function (w, i) {
+          msg(O, w, seg(t, 700, 1400), C.agent);
+          var s = 2350 + i * 350;
+          agent(w, on(t, 1400, s) ? pulse(t + i * 300) : 0);
+          msg(w, O, seg(t, s, s + 700), C.agent);
+        });
+        msg(O, Hm, seg(t, 4300, 5000), C.agent);
+        human(Hm, t > 5000 ? 1 - seg(t, 5600, 6000) : 0);
+        agent(O, on(t, 700, 1400) || on(t, 3400, 4300) ? 0.8 : 0, true);
+        text(P(O.x, O.y + 28 * G), "lead", C.faint, 1);
+        text(P(Wk[3].x + 34 * G, Wk[3].y), "workers", C.faint, 1, "left");
+        pill(P(Hm.x, Hm.y - 30 * G), "task", C.human, fade(t, 0, 900));
+        pill(P(O.x, O.y - 32 * G), "split", C.agent, fade(t, 650, 1600));
+        pill(P(O.x, O.y - 32 * G), "merge", C.agent, fade(t, 3500, 4400));
+        pill(P(Hm.x, Hm.y - 30 * G), "result", C.agent, fade(t, 4900, 5900));
+      }
+    },
+    {
+      name: "Draft & critique",
+      hint: "One agent drafts; another checks it and sends it back.",
+      period: 6600, key: 1350,
+      draw: function (t) {
+        var D = P(150, 170), Ck = P(370, 170), Hm = P(530, 170);
+        link(D, Ck, 0.45); link(Ck, Hm, 0.45);
+        var d;
+        if (t < 900) d = lerp(D, Ck, ease(seg(t, 0, 900)));
+        else if (t < 1500) d = Ck;
+        else if (t < 2300) d = lerp(Ck, D, ease(seg(t, 1500, 2300)));
+        else if (t < 3000) d = D;
+        else if (t < 3800) d = lerp(D, Ck, ease(seg(t, 3000, 3800)));
+        else if (t < 4400) d = Ck;
+        else d = lerp(Ck, Hm, ease(seg(t, 4400, 5200)));
+        agent(D, on(t, 2300, 3000) ? pulse(t) : 0);
+        agent(Ck, on(t, 900, 1500) || on(t, 3800, 4400) ? 0.8 : 0, false, C.agent);
+        human(Hm, t > 5200 ? 1 : 0);
+        doc(P(d.x, d.y - 26 * G), 1, t > 3800 ? C.ok : C.fg);
+        text(P(D.x, D.y + 26 * G), "writer", C.faint, 1);
+        text(P(Ck.x, Ck.y + 26 * G), "checker", C.faint, 1);
+        pill(P(Ck.x, Ck.y - 58 * G), "needs fix", C.no, fade(t, 900, 1800));
+        pill(P(D.x, D.y - 58 * G), "revise", C.agent, fade(t, 2300, 3000));
+        pill(P(Ck.x, Ck.y - 58 * G), "looks good", C.ok, fade(t, 3800, 4600));
+      }
+    },
+    {
+      name: "Debate, human decides",
+      hint: "Two agents argue; the human makes the call.",
+      period: 6800, key: 4800,
+      draw: function (t) {
+        var A1 = P(160, 100), A2 = P(440, 100), Hm = P(300, 255);
+        var picked = t > 4300;
+        link(A1, A2, 0.4);
+        link(A1, Hm, picked ? 0.15 : 0.4);
+        link(A2, Hm, picked ? 1 : 0.4, picked ? 2.5 : 1, picked ? C.ok : null);
+        for (var k = 0; k < 4; k++) {
+          var s = k * 850, from = k % 2 ? A2 : A1, to = k % 2 ? A1 : A2;
+          msg(from, to, seg(t, s, s + 800), C.agent);
+          pill(P(from.x, from.y - 30 * G), k % 2 ? "con" : "pro", C.agent, fade(t, s, s + 850));
+        }
+        msg(A1, Hm, seg(t, 3400, 4100), C.agent);
+        msg(A2, Hm, seg(t, 3400, 4100), C.agent);
+        agent(A1, 0, false, null, picked ? 0.45 : 1);
+        agent(A2, picked ? 1 : 0);
+        human(Hm, on(t, 4100, 4400) ? pulse(t) : 0);
+        pill(P(Hm.x, Hm.y + 32 * G), "decides", C.ok, fade(t, 4300, 6800));
+      }
+    },
+    {
+      name: "Shared memory",
+      hint: "Agents write to and read from a shared board.",
+      period: 6200, key: 2350,
+      draw: function (t) {
+        var B = P(300, 150), bw = 150, bh = 92;
+        var Ag = [P(105, 65), P(105, 235), P(495, 65), P(495, 235)], Hm = P(300, 280);
+        var slots = [];
+        for (var r = 0; r < 2; r++) for (var c = 0; c < 3; c++) slots.push(P(B.x - 48 + c * 48, B.y - 16 + r * 34));
+        var ev = [["w", 0, 0, 0], ["r", 2, 0, 700], ["w", 1, 1, 1300], ["w", 2, 2, 2000], ["r", 3, 1, 2700], ["w", 3, 3, 3300], ["h", -1, 2, 4100]];
+        ctx.strokeStyle = C.faint; ctx.lineWidth = 1.2 / S; ctx.strokeRect(B.x - bw / 2, B.y - bh / 2, bw, bh);
+        text(P(B.x, B.y - bh / 2 - 12), "shared memory", C.faint, 1);
+        Ag.forEach(function (a) { link(a, P(Math.max(B.x - bw / 2, Math.min(B.x + bw / 2, a.x)), Math.max(B.y - bh / 2, Math.min(B.y + bh / 2, a.y))), 0.3); });
+        link(Hm, P(B.x, B.y + bh / 2), 0.25);
+        slots.forEach(function (s, i) {
+          var w = ev.filter(function (e) { return e[0] === "w" && e[2] === i; })[0];
+          var filled = w ? seg(t, w[3] + 650, w[3] + 900) : 0;
+          ctx.globalAlpha = 0.25 + 0.75 * filled; ctx.fillStyle = filled ? C.agent : C.line;
+          ctx.fillRect(s.x - 18, s.y - 10, 36, 20); ctx.globalAlpha = 1;
+        });
+        ev.forEach(function (e) {
+          var who = e[0] === "h" ? Hm : Ag[e[1]], s = slots[e[2]];
+          if (e[0] === "w") msg(who, s, seg(t, e[3], e[3] + 650), C.agent);
+          else msg(s, who, seg(t, e[3], e[3] + 650), C.agent);
+          if (e[0] !== "h") agent(who, on(t, e[3], e[3] + 650) ? 0.8 : 0);
+        });
+        Ag.forEach(function (a) { agent(a, 0); });
+        human(Hm, t > 4750 ? 1 - seg(t, 5800, 6200) : 0);
+        pill(P(Ag[0].x, Ag[0].y - 28 * G), "write", C.agent, fade(t, 0, 800));
+        pill(P(Ag[2].x, Ag[2].y - 28 * G), "read", C.agent, fade(t, 700, 1400));
+        pill(P(Hm.x + 50 * G, Hm.y), "read", C.human, fade(t, 4100, 5200));
+      }
+    },
+    {
+      name: "Swarm with traces",
+      hint: "Many simple agents follow each other's trails; a path emerges.",
+      period: 11000, key: -1,
+      draw: function (t, dt, still) {
+        var nest = P(80, 160), food = P(520, 160);
+        var ctrl = [P(300, 0), P(300, 170), P(300, 320)];
+        function at(k, p) {
+          var c = ctrl[k], u = 1 - p;
+          return P(u * u * nest.x + 2 * u * p * c.x + p * p * food.x, u * u * nest.y + 2 * u * p * c.y + p * p * food.y);
+        }
+        var len = [560, 445, 560];
+        if (still) { sw.w = [1.5, 40, 1.5]; sw.ants.forEach(function (a, i) { a.k = i % 6 ? 1 : (i % 12 ? 0 : 2); a.p = (i * 0.137) % 1; a.wait = 0; }); }
+        else {
+          // trails fade; every finished trip leaves a trace, stronger on shorter paths
+          for (var k = 0; k < 3; k++) sw.w[k] = Math.max(1, sw.w[k] * (1 - 0.0006 * dt));
+          sw.ants.forEach(function (a) {
+            if (a.wait > 0) { a.wait -= dt; return; }
+            a.p += a.dir * dt * 0.2 / len[a.k];
+            if (a.p >= 1 || a.p <= 0) {
+              sw.w[a.k] += 2 * Math.pow(445 / len[a.k], 4);
+              a.p = clamp(a.p); a.dir = -a.dir;
+              var q = sw.w.map(function (x) { return x * x; }), tot = q[0] + q[1] + q[2], r = Math.random() * tot;
+              a.k = r < q[0] ? 0 : r < q[0] + q[1] ? 1 : 2;   // follow the stronger trail
+            }
+          });
+        }
+        var mx = Math.max(sw.w[0], sw.w[1], sw.w[2]);
+        for (k = 0; k < 3; k++) {
+          var f = sw.w[k] / mx;
+          ctx.globalAlpha = 0.08 + 0.6 * f * f; ctx.strokeStyle = C.agent; ctx.lineWidth = (0.6 + 4.4 * f * f) / S;
+          ctx.beginPath(); ctx.moveTo(nest.x, nest.y); ctx.quadraticCurveTo(ctrl[k].x, ctrl[k].y, food.x, food.y); ctx.stroke();
+        }
+        ctx.globalAlpha = 1;
+        ctx.strokeStyle = C.faint; ctx.lineWidth = 1.5 / S; ctx.strokeRect(food.x - 11 * G, food.y - 11 * G, 22 * G, 22 * G);
+        text(P(food.x, food.y + 26 * G), "goal", C.faint, 1);
+        sw.ants.forEach(function (a) {
+          if (a.wait > 0) return;
+          var p = at(a.k, a.p), h = 2.6 * G;
+          ctx.fillStyle = C.agent; ctx.fillRect(p.x - h, p.y - h, h * 2, h * 2);
+        });
+        human(nest, 0);
+        text(P(nest.x, nest.y + 26 * G), "start", C.faint, 1);
+      }
+    }
+  ];
+  var sw = { w: [1, 1, 1], ants: [] };
+  function resetSwarm() {
+    sw.w = [1, 1, 1]; sw.ants = [];
+    for (var i = 0; i < 30; i++) sw.ants.push({ k: i % 3, p: 0, dir: 1, wait: i * 120 });
+  }
+  resetSwarm();
+
+  // ---- chips, loop, reduced motion ---------------------------------------
+  var cur = 0, t = 0, userPicked = false, raf = 0, prev = 0, visible = true;
+  var chips = scenes.map(function (s, i) {
+    var b = document.createElement("button");
+    b.setAttribute("role", "tab"); b.textContent = s.name;
+    b.addEventListener("click", function () { userPicked = true; select(i); });
+    b.addEventListener("keydown", function (e) {
+      var d = e.key === "ArrowRight" ? 1 : e.key === "ArrowLeft" ? -1 : 0;
+      if (d) { e.preventDefault(); var n = (i + d + scenes.length) % scenes.length; userPicked = true; select(n); chips[n].focus(); }
+    });
+    chipsEl.appendChild(b);
+    return b;
+  });
+
+  function render(dt, still) {
+    ctx.save(); ctx.setTransform(1, 0, 0, 1, 0, 0); ctx.clearRect(0, 0, cv.width, cv.height); ctx.restore();
+    var s = scenes[cur];
+    s.draw(still ? s.key : t, dt, still);
+  }
+  function select(i) {
+    cur = i; t = 0;
+    if (i === 5) resetSwarm();
+    chips.forEach(function (b, k) { b.setAttribute("aria-selected", k === i ? "true" : "false"); b.tabIndex = k === i ? 0 : -1; });
+    hintEl.textContent = scenes[i].hint;
+    cv.setAttribute("aria-label", scenes[i].name + ": " + scenes[i].hint);
+    if (reduceQ.matches) render(0, true);
+  }
+  function frame(now) {
+    raf = 0;
+    if (!visible || document.hidden || reduceQ.matches) return;
+    var dt = Math.min(50, prev ? now - prev : 16); prev = now; t += dt;
+    var s = scenes[cur];
+    if (t >= s.period) {
+      if (!userPicked) { select((cur + 1) % scenes.length); }
+      else if (cur !== 5) t = 0;
+      else { t = 0; resetSwarm(); }
+    }
+    render(dt, false);
+    raf = requestAnimationFrame(frame);
+  }
+  function kick() { if (!raf && !reduceQ.matches) { prev = 0; raf = requestAnimationFrame(frame); } }
+
+  if ("IntersectionObserver" in window) new IntersectionObserver(function (es) { visible = es[0].isIntersecting; if (visible) kick(); }).observe(cv);
+  document.addEventListener("visibilitychange", function () { if (!document.hidden) kick(); });
+  var rt;
+  window.addEventListener("resize", function () { clearTimeout(rt); rt = setTimeout(function () { resize(); render(0, reduceQ.matches); }, 120); });
+  if (darkQ.addEventListener) darkQ.addEventListener("change", function () { colors(); render(0, reduceQ.matches); });
+  if (reduceQ.addEventListener) reduceQ.addEventListener("change", function () { if (reduceQ.matches) render(0, true); else kick(); });
+
+  colors(); resize(); select(0);
+  render(0, reduceQ.matches);
+  kick();
+})();
+</script>
+</body>
+</html>
